@@ -3,7 +3,6 @@ package com.kluev.catalogs.executors;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kluev.catalogs.entities.EducYear;
-import com.kluev.catalogs.repositories.EducYearRepository;
 import com.kluev.catalogs.servises.EducYearServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -18,14 +17,12 @@ public class EducYearExecutor implements Executor {
     @Override
     public void execute(String command, String json) {
        EducYear educYear = deserialization(json);
-       if(ADD.getCommandName().equals(command)) {
+       if(ADD.getCommandName().equals(command) ||
+               EDIT.getCommandName().equals(command)) {
            educYearService.save(educYear);
        }
-       else if(EDIT.getCommandName().equals(command)) {
-
-       }
        else if(DELETE.getCommandName().equals(command)) {
-
+            educYearService.delete(educYear);
        }
     }
 

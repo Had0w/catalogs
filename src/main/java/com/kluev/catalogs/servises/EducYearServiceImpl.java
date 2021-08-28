@@ -18,4 +18,7 @@ public class EducYearServiceImpl implements EducYearService {
     public void save(EducYear educYear) {
         educYearRepository.save(educYear);
     }
+
+    @Override
+    public void delete(EducYear educYear) { educYearRepository.delete(educYear);}
 }

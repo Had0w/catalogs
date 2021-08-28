@@ -1,9 +1,5 @@
 package com.kluev.catalogs.servises;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
 /**
  * Сервис парсит полученную строку, определяя таблицу, команду и Json
  */

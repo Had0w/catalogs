@@ -1,5 +1,7 @@
 package com.kluev.catalogs;
 
+import com.kluev.catalogs.executors.EducYearExecutor;
+import com.kluev.catalogs.executors.Executor;
 import com.kluev.catalogs.executors.TableExecutorContainer;
 import com.kluev.catalogs.servises.RequestService;
 import org.springframework.boot.SpringApplication;
@@ -27,7 +29,8 @@ public class CatalogsApplication {
 				String content = Files.readString(Paths.get(filePath));
 				String[] strings = RequestService.parseRequest(content);
 				TableExecutorContainer tableExecutorContainer = configurableApplicationContext.getBean(TableExecutorContainer.class);
-				tableExecutorContainer.retrieveExecutor(strings[1]).execute(strings[0], strings[2]);
+				Executor executor = tableExecutorContainer.retrieveExecutor(strings[1]);
+				executor.execute(strings[0], strings[2]);
 				System.out.println("Данне в таблице " + strings[1] + " изменены, выполнена команда " + strings[0]);
 			} catch (IOException e) {
 				System.out.println("Введен некорректный путь!");
