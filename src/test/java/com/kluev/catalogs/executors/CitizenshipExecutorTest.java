@@ -21,7 +21,7 @@ class CitizenshipExecutorTest {
                 "\"id\" : 9,\n" +
                 "\"code\" : \"PTZ\",\n" +
                 "\"title\" : \"blablabla\",\n" +
-                "\"update_at\" : \"2021-08-30 20:00:00\"\n" +
+                "\"updatedAt\" : \"2021-08-30 20:00:00\"\n" +
                 "}";
         Citizenship expexted = new Citizenship();
         expexted.setId(9);
