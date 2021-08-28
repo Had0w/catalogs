@@ -1,18 +1,27 @@
 package com.kluev.catalogs.entities;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.datatype.jsr310.*;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.DynamicUpdate;
 import javax.persistence.*;
 import javax.persistence.Table;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "educ_year")
 @Data
+@DynamicUpdate
 @NoArgsConstructor
+@JsonAutoDetect
 public class EducYear {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
 
@@ -23,10 +32,14 @@ public class EducYear {
     private int year;
 
     @Column(name = "sdate")
-    private LocalDateTime startDate;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
+    private LocalDateTime sdate;
 
     @Column(name = "edate")
-    private LocalDateTime endDate;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
+    private LocalDateTime edate;
 
     @Override
     public String toString() {
@@ -34,8 +47,8 @@ public class EducYear {
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", year=" + year +
-                ", startDate=" + startDate +
-                ", endDate=" + endDate +
+                ", startDate=" + sdate +
+                ", endDate=" + edate +
                 '}';
     }
 }
