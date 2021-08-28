@@ -28,15 +28,15 @@ class EducYearExecutorTest {
         expected.setId(8);
         expected.setTitle("2018-2019 Учебный год");
         expected.setYear(2018);
-        expected.setEdate(LocalDateTime.of(2020, 8, 30, 20, 0, 0));
-        expected.setSdate(LocalDateTime.of(2020, 8, 30, 20, 0, 0));
+        expected.setEDate(LocalDateTime.of(2020, 8, 30, 20, 0, 0));
+        expected.setSDate(LocalDateTime.of(2020, 8, 30, 20, 0, 0));
         //when
         EducYear actual = new EducYearExecutor().deserialization(json);
         //then
         Assertions.assertEquals(expected.getId(), actual.getId());
         Assertions.assertEquals(expected.getTitle(), actual.getTitle());
-        Assertions.assertEquals(expected.getEdate(), actual.getEdate());
-        Assertions.assertEquals(expected.getSdate(), actual.getSdate());
+        Assertions.assertEquals(expected.getEDate(), expected.getEDate());
+        Assertions.assertEquals(expected.getSDate(), actual.getSDate());
         Assertions.assertEquals(expected.getYear(), actual.getYear());
     }
 }

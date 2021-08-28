@@ -3,15 +3,12 @@ package com.kluev.catalogs.entities;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.datatype.jsr310.*;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.DynamicUpdate;
 import javax.persistence.*;
 import javax.persistence.Table;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -34,12 +31,12 @@ public class EducYear {
     @Column(name = "sdate")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
-    private LocalDateTime sdate;
+    private LocalDateTime sDate;
 
     @Column(name = "edate")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
-    private LocalDateTime edate;
+    private LocalDateTime eDate;
 
     @Override
     public String toString() {
@@ -47,8 +44,8 @@ public class EducYear {
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", year=" + year +
-                ", startDate=" + sdate +
-                ", endDate=" + edate +
+                ", startDate=" + sDate +
+                ", endDate=" + eDate +
                 '}';
     }
 }
