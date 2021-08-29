@@ -31,4 +31,10 @@ public class Citizenship {
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
+
+    @Column(name = "nsi_global_id")
+    private int nsiGlobalId;
+
+    @Column(name = "nsi_id")
+    private int nsiId;
 }
