@@ -1,6 +1,5 @@
 package com.kluev.catalogs;
 
-import com.kluev.catalogs.executors.EducYearExecutor;
 import com.kluev.catalogs.executors.Executor;
 import com.kluev.catalogs.executors.TableExecutorContainer;
 import com.kluev.catalogs.servises.RequestService;
