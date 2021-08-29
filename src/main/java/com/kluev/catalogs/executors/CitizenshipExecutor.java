@@ -27,7 +27,7 @@ public class CitizenshipExecutor implements Executor {
                     EDIT.getCommandName().equals(command)) {
                 citizenshipServiceImp.save(citizenship);
             } else if (DELETE.getCommandName().equals(command)) {
-
+                citizenshipServiceImp.delete(citizenship);
             }
         }
     }

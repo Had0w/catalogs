@@ -1,11 +1,6 @@
 package com.kluev.catalogs.executors;
 
-import com.kluev.catalogs.servises.CitizenshipServiceImp;
-import com.kluev.catalogs.servises.EducYearServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.orm.hibernate5.SpringBeanContainer;
 import org.springframework.stereotype.Component;
 import java.util.HashMap;
 

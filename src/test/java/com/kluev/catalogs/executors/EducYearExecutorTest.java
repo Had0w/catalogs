@@ -1,17 +1,30 @@
 package com.kluev.catalogs.executors;
 
 import com.kluev.catalogs.entities.EducYear;
+import com.kluev.catalogs.servises.EducYearServiceImpl;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentCaptor;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.mockito.Spy;
+import org.springframework.boot.test.mock.mockito.MockBean;
 
 import java.time.LocalDateTime;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 class EducYearExecutorTest {
 
+    @Mock
+    EducYearServiceImpl educYearService;
+
     @Test
     void execute() {
+
     }
 
     @Test

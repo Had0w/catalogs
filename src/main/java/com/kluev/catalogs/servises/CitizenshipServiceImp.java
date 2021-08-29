@@ -19,4 +19,9 @@ public class CitizenshipServiceImp implements CitizenshipService {
     public void save(Citizenship citizenship) {
         citizenshipRepository.save(citizenship);
     }
+
+    @Override
+    public void delete(Citizenship citizenship) {
+        citizenshipRepository.delete(citizenship);
+    }
 }

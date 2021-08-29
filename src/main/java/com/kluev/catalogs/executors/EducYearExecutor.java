@@ -11,18 +11,27 @@ import static com.kluev.catalogs.executors.Commands.*;
 
 @Component
 public class EducYearExecutor implements Executor {
-    @Autowired
+
     private EducYearServiceImpl educYearService;
+
+    @Autowired
+    public void setEducYearService(EducYearServiceImpl educYearService) {
+        this.educYearService = educYearService;
+    }
 
     @Override
     public void execute(String command, String json) {
        EducYear educYear = deserialization(json);
-       if(ADD.getCommandName().equals(command) ||
-               EDIT.getCommandName().equals(command)) {
-           educYearService.save(educYear);
+       if(educYear.getId() == 0) {
+           System.out.println("Данные не были обновлены");
        }
-       else if(DELETE.getCommandName().equals(command)) {
-            educYearService.delete(educYear);
+       else {
+           if (ADD.getCommandName().equals(command) ||
+                   EDIT.getCommandName().equals(command)) {
+               educYearService.save(educYear);
+           } else if (DELETE.getCommandName().equals(command)) {
+               educYearService.delete(educYear);
+           }
        }
     }
 
