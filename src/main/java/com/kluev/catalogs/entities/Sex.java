@@ -31,6 +31,18 @@ public class Sex {
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     private LocalDateTime updatedAt;
 
+    @Column(name = "nsi_global_id")
+    private int nsiGlobalId;
+
+    @Column(name = "nsi_id")
+    private int nsiId;
+
+    @Column(name = "nsi_title")
+    private int nsiTitle;
+
+    @Column(name = "nsi_del")
+    private boolean nsiDel;
+
     public Sex() {
         if(updatedAt == null) {
             updatedAt = LocalDateTime.now();
