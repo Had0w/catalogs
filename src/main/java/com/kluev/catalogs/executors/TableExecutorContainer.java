@@ -2,7 +2,6 @@ package com.kluev.catalogs.executors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 import java.util.HashMap;
 
 @Component
