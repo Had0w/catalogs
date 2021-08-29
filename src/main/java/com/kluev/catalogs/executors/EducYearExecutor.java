@@ -42,7 +42,7 @@ public class EducYearExecutor implements Executor {
         try {
             educYear = objectMapper.readValue(json, EducYear.class);
         } catch (JsonProcessingException e) {
-            System.out.println("Ошибка сериализации");
+            e.printStackTrace();
         }
         return educYear;
     }

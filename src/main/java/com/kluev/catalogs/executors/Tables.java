@@ -3,7 +3,7 @@ package com.kluev.catalogs.executors;
 public enum Tables {
     EDUC_YEAR("EDUC_YEAR"),
     CITIZENSHIP("CITIZENSHIP"),
-    GENDER("GENDER");
+    SEX("SEX");
 
     private final String tableName;
 

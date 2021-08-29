@@ -10,7 +10,8 @@ class TableExecutorContainerTest {
     @Test
     void retrieveExecutor() {
         //given
-        TableExecutorContainer tableExecutorContainer = new TableExecutorContainer(new EducYearExecutor(), new CitizenshipExecutor());
+        TableExecutorContainer tableExecutorContainer = new TableExecutorContainer(new EducYearExecutor(), new CitizenshipExecutor()
+        , new SexExecutor());
         //when
         Executor executor = tableExecutorContainer.retrieveExecutor("EDUC_YEAR");
         //then
