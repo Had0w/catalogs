@@ -31,7 +31,6 @@ public class CatalogsApplication {
 				TableExecutorContainer tableExecutorContainer = configurableApplicationContext.getBean(TableExecutorContainer.class);
 				Executor executor = tableExecutorContainer.retrieveExecutor(strings[1]);
 				executor.execute(strings[0], strings[2]);
-				System.out.println("Данне в таблице " + strings[1] + " изменены, выполнена команда " + strings[0]);
 			} catch (IOException e) {
 				System.out.println("Введен некорректный путь!");
 			}

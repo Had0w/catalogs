@@ -4,31 +4,58 @@ import com.kluev.catalogs.entities.EducYear;
 import com.kluev.catalogs.servises.EducYearServiceImpl;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.mockito.ArgumentCaptor;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-import org.mockito.Spy;
+import org.mockito.Mockito;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.boot.test.mock.mockito.SpyBean;
 
 import java.time.LocalDateTime;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-
+@DataJpaTest
 class EducYearExecutorTest {
 
-    @Mock
+    @MockBean
     EducYearServiceImpl educYearService;
 
-    @Test
-    void execute() {
+    @SpyBean
+    EducYearExecutor educYearExecutor;
 
+    @Test
+    void executeSaveTest() {
+        //given
+        String json = "{\n" +
+                "\"id\" : 8,\n" +
+                "\"title\" : \"2018-2019 Учебный год\",\n" +
+                "\"year\" : 2018,\n" +
+                "\"sdate\" : \"2020-08-30 20:00:00\",\n" +
+                "\"edate\" : \"2020-08-30 20:00:00\"\n" +
+                "}";
+        String command = "Добавление";
+        //when
+        educYearExecutor.execute(command, json);
+        //then
+        Mockito.verify(educYearService).save(Mockito.any());
     }
 
     @Test
-    void deserialization() {
+    void executeDeleteTest() {
+        //given
+        String json = "{\n" +
+                "\"id\" : 8,\n" +
+                "\"title\" : \"2018-2019 Учебный год\",\n" +
+                "\"year\" : 2018,\n" +
+                "\"sdate\" : \"2020-08-30 20:00:00\",\n" +
+                "\"edate\" : \"2020-08-30 20:00:00\"\n" +
+                "}";
+        String command = "Удаление";
+        //when
+        educYearExecutor.execute(command, json);
+        //then
+        Mockito.verify(educYearService).delete(Mockito.any());
+    }
+
+    @Test
+    void deserializationTest() {
         //given
         String json = "{\n" +
                 "\"id\" : 8,\n" +

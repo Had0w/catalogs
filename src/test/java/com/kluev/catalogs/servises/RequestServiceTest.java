@@ -5,10 +5,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 class RequestServiceTest {
-    RequestService requestService = new RequestService();
 
     @Test
-    void parseRequest() {
+    void parseRequestTest() {
         //given
         String request = "Добавление GENDER: {\n" +
                 "id : 8,\n" +
