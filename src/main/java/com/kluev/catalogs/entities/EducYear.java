@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.hibernate.annotations.DynamicUpdate;
 import javax.persistence.*;
 import javax.persistence.Table;
@@ -15,7 +14,6 @@ import java.time.LocalDateTime;
 @Table(name = "educ_year")
 @Data
 @DynamicUpdate
-@NoArgsConstructor
 @JsonAutoDetect
 public class EducYear {
     @Id
@@ -38,14 +36,26 @@ public class EducYear {
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     private LocalDateTime eDate;
 
-    @Override
-    public String toString() {
-        return "EducYear{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", year=" + year +
-                ", startDate=" + sDate +
-                ", endDate=" + eDate +
-                '}';
+    @Column(name = "updated_at")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
+    private LocalDateTime updatedAt;
+
+    @Column(name = "nsi_global_id")
+    private int nsiGlobalId;
+
+    @Column(name = "nsi_id")
+    private int nsiId;
+
+    @Column(name = "nsi_title")
+    private int nsiTitle;
+
+    @Column(name = "nsi_del")
+    private boolean nsiDel;
+
+    public EducYear() {
+        if(updatedAt == null) {
+            updatedAt = LocalDateTime.now();
+        }
     }
 }
