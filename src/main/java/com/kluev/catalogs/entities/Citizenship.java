@@ -14,7 +14,6 @@ import java.time.LocalDateTime;
 @Table(name = "citizenship")
 @Data
 @DynamicUpdate
-@NoArgsConstructor
 @JsonAutoDetect
 public class Citizenship {
     @Id

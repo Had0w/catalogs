@@ -6,6 +6,8 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
+
+import javax.annotation.PostConstruct;
 import javax.persistence.*;
 import javax.persistence.Table;
 import java.time.LocalDateTime;
