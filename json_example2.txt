@@ -1,0 +1,6 @@
+Добавление CITIZENSHIP: {
+"id" : 9,
+"code" : "PTZ",
+"title" : "blablabla",
+"updatedAt" : "2021-08-30 20:00:00"
+}
