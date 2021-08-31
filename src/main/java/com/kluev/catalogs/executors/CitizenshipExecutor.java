@@ -3,7 +3,7 @@ package com.kluev.catalogs.executors;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kluev.catalogs.entities.Citizenship;
-import com.kluev.catalogs.servises.CitizenshipServiceImp;
+import com.kluev.catalogs.servises.CitizenshipService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -12,11 +12,11 @@ import static com.kluev.catalogs.executors.Commands.*;
 @Component
 public class CitizenshipExecutor implements Executor {
 
-    private CitizenshipServiceImp citizenshipServiceImp;
+    private CitizenshipService citizenshipService;
 
     @Autowired
-    public void setCitizenshipServiceImp(CitizenshipServiceImp citizenshipServiceImp) {
-        this.citizenshipServiceImp = citizenshipServiceImp;
+    public void setCitizenshipServiceImp(CitizenshipService citizenshipService) {
+        this.citizenshipService = citizenshipService;
     }
 
     @Override
@@ -25,9 +25,9 @@ public class CitizenshipExecutor implements Executor {
         if(citizenship.getId() != 0) {
             if (ADD.getCommandName().equals(command) ||
                     EDIT.getCommandName().equals(command)) {
-                citizenshipServiceImp.save(citizenship);
+                citizenshipService.save(citizenship);
             } else if (DELETE.getCommandName().equals(command)) {
-                citizenshipServiceImp.delete(citizenship);
+                citizenshipService.delete(citizenship);
             }
         }
     }

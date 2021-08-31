@@ -3,7 +3,7 @@ package com.kluev.catalogs.executors;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kluev.catalogs.entities.EducYear;
-import com.kluev.catalogs.servises.EducYearServiceImpl;
+import com.kluev.catalogs.servises.EducYearService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -12,10 +12,10 @@ import static com.kluev.catalogs.executors.Commands.*;
 @Component
 public class EducYearExecutor implements Executor {
 
-    private EducYearServiceImpl educYearService;
+    private EducYearService educYearService;
 
     @Autowired
-    public void setEducYearService(EducYearServiceImpl educYearService) {
+    public void setEducYearService(EducYearService educYearService) {
         this.educYearService = educYearService;
     }
 

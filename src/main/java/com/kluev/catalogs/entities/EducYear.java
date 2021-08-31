@@ -6,8 +6,8 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
+import org.hibernate.annotations.UpdateTimestamp;
 
-import javax.annotation.PostConstruct;
 import javax.persistence.*;
 import javax.persistence.Table;
 import java.time.LocalDateTime;
@@ -41,6 +41,7 @@ public class EducYear {
     @Column(name = "updated_at")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
+    @UpdateTimestamp
     private LocalDateTime updatedAt;
 
     @Column(name = "nsi_global_id")
